@@ -2,7 +2,7 @@
 import random
 import string
 
-from app.players import create_player, PLAYER_COLORS
+from app.players.models import create_player, PLAYER_COLORS
 
 rooms = {}
 
@@ -36,7 +36,8 @@ def create_room(player_name):
     rooms[room_code] = {
         "players": [player],
         "max_players": 4,
-        "status": "waiting"
+        "status": "waiting",
+        "host_id" : player["id"]
     }
 
     return room_code
